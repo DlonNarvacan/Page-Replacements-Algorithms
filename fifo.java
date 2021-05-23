@@ -4,10 +4,10 @@ import java.util.*;
 
 
 public class fifo {
-    static int references, frames, hit=0, fault_count=0,count;
     public static void main(String[] args) {
         Scanner myinp = new Scanner(System.in);
-
+        int references, frames, hit=0, fault_count=0,count;
+        
         System.out.print("Number of Frames: ");
         frames = myinp.nextInt();
 
