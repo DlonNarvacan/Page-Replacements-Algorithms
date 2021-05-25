@@ -6,7 +6,7 @@ public class lru {
     
     public static void main(String[] args) {
         Scanner myinp = new Scanner(System.in);
-        int references, frames, hit=0, fault_count=0, k, page_get, cap=0, repeat=0;
+        int references, frames, hit=0, fault_count=0, page_get, cap=0, repeat=0;
 
         System.out.print("Number of Frames: ");
         frames = myinp.nextInt();
