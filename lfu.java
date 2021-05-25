@@ -41,7 +41,7 @@ public class lfu {
             }
 
             
-            if (hit == 0) {
+            if (hit != 0) {
                 int temp=0, index_hit;
 
                 for (int j = 0; j < frames; j++) {
