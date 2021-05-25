@@ -53,7 +53,9 @@ public class lfu {
 
                 index_hit = temp;
                 cnt[index_hit]++;
-                System.out.print(" ");
+                for (int j = 0; j < frames; j++) {
+                    System.out.print("-\t");
+                }
             } else {
                 fault_count++;
                 if (bn < frames) {
