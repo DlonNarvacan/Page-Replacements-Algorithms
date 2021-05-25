@@ -5,7 +5,7 @@ import java.util.*;
 public class lfu {
     public static void main(String[] args) {
         Scanner myinp = new Scanner(System.in);
-        int references, frames, hit=0, fault_count=0, least, rp, cnt2=0, bn=0;
+        int references, frames, hit=0, fault_count=0, least, rp=0, cnt2=0, bn=0;
 
         System.out.print("Number of Frames: ");
         frames = myinp.nextInt();
@@ -58,9 +58,38 @@ public class lfu {
                 fault_count++;
                 if (bn < frames) {
                     page[bn] = reference_string[i];
+                    cnt[bn] = cnt[bn]++;
+                    bn++;
+                } else {
+                    least = 9999;
+                    for (int j = 0; j < frames; j++) {
+                        if (cnt[j] < least) {
+                            least = cnt[j];
+                            rp = j;
+                        }
+                    }
+
+                    page[rp] = reference_string[i];
+                    cnt2 = 0;
+
+                    for (int j = 0; j <= i; j++) {
+                        if (reference_string[i] == reference_string[j]) {
+                            cnt2 = cnt2++;
+                        }
+                    }
+
+                    cnt[rp] = cnt2;
+                }
+
+                for (int j = 0; j < frames; j++) {
+                    if (page[j] != 9999) {
+                        System.out.print(page[j]+"\t");
+                    }
                 }
             }
-        }
 
+        }
+        System.out.print("\n===============================");
+        System.out.println("\nFault: "+fault_count);
     }
 }
